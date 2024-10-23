@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 from typing import List
 import datetime
@@ -39,6 +39,9 @@ class BookItem:
 class Library:
     items: List[BookItem] = field(default_factory=list)
     
+    def add_book_item(self, book_item: BookItem):
+        self.items.append(book_item)
+    
 def main():
     # Create some books
     book1 = Book(title="The Great Gatsby", authors=["F. Scott Fitzgerald"], edition=1)
@@ -49,8 +52,13 @@ def main():
     book_item2 = BookItem(book=book2)
     book_item3 = BookItem(book=book1)
     
-    # Create a library and add book items
-    library = Library(items=[book_item1, book_item2, book_item3])
+    # Create a library
+    library = Library()
+    
+    # Add book items to the library
+    library.add_book_item(book_item1)
+    library.add_book_item(book_item2)
+    library.add_book_item(book_item3)
     
     # Checkout a book
     print(f"Checking out '{book_item1.book.title}': {book_item1.checkout()}")
