@@ -14,6 +14,7 @@ const AddBook: React.FC = () => {
             setTitle("");
             setAuthor("");
             setCopies(1);
+            window.location.reload(); // Reload the page
         } catch (error) {
             alert("Error adding book.");
             console.error(error);
