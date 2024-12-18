@@ -10,6 +10,7 @@ const BorrowBook: React.FC = () => {
             const response = await borrowBook(Number(itemId));
             alert(response.data.message);
             setItemId("");
+            window.location.reload(); // Reload the page
         } catch (error) {
             alert("Error borrowing book.");
             console.error(error);

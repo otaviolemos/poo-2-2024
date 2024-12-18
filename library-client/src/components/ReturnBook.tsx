@@ -10,6 +10,7 @@ const ReturnBook: React.FC = () => {
             const response = await returnBook(Number(itemId));
             alert(response.data.message);
             setItemId("");
+            window.location.reload(); // Reload the page
         } catch (error) {
             alert("Error returning book.");
             console.error(error);
