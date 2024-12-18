@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
@@ -11,6 +12,7 @@ from services import (
 )
 
 app = Flask(__name__)
+CORS(app)
 
 # Database configuration
 DATABASE_URI = 'mysql+mysqlconnector://sql5747408:ZXr2RRDHxL@sql5.freemysqlhosting.net/sql5747408'
